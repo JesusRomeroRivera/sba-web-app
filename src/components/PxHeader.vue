@@ -5,7 +5,7 @@
       <a class="Header--List--Ancle" href="#inicio">Inicio</a>
       <a class="Header--List--Ancle" href="#nosotros">Nosotros</a>
       <a class="Header--List--Ancle" href="#servicios">Servicios</a>
-      <router-link class="Header--List--Ancle" :to="{ name: 'login' }"
+      <router-link class="Header--List--Ancle" :to="{ name: 'SignUp' }"
         >Regístrate</router-link
       >
       <router-link class="Header--List--Ancle" :to="{ name: 'Login' }"

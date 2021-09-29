@@ -14,7 +14,7 @@
       </p>
       <px-button class="Login--Button" :color="buttonBlack">Iniciar</px-button>
     </div>
-    <div class="Login--Img"></div>
+    <img class="Login--Img" src="@/assets/about-img.png" />
   </section>
 </template>
 
@@ -80,11 +80,13 @@ export default {
   border: 0;
   width: 100%;
   margin: 0.8rem 0;
+  padding: 0.4rem;
   border-bottom: 1px solid var(--soft-gray);
 }
 .Login--Img {
   background-color: var(--soft-gray);
-  width: 100%;
-  height: 100%;
+  width: 50vw;
+  height: 100vh;
+  justify-self: flex-end;
 }
 </style>

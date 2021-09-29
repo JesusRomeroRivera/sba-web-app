@@ -3,9 +3,15 @@
     <div class="Footer--Container">
       <h1 class="Footer--Logo">SBA</h1>
       <div class="Footer--SocialMedia">
-        <img class="Footer--Icon" src="@/assets/facebook.svg" alt="" />
-        <img class="Footer--Icon" src="@/assets/instagram.svg" alt="" />
-        <img class="Footer--Icon" src="@/assets/twitter.svg" alt="" />
+        <a class="Footer--IconContainer" href="">
+          <img class="Footer--Icon" src="@/assets/facebook.png" alt="" />
+        </a>
+        <a class="Footer--IconContainer" href="">
+          <img class="Footer--Icon" src="@/assets/instagram.png" alt="" />
+        </a>
+        <a class="Footer--IconContainer" href="">
+          <img class="Footer--Icon" src="@/assets/twitter.png" alt="" />
+        </a>
       </div>
       <p class="Footer--Text">SBA@gmail.com</p>
     </div>
@@ -50,8 +56,17 @@ export default {
   gap: 2.75rem;
   margin: 1rem 0;
 }
-.Footer--Icon {
+.Footer--IconContainer {
   width: 3.6rem;
+  height: 3.6rem;
+  background-color: var(--background-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.8rem;
+}
+.Footer--Icon {
+  height: 1.5rem;
 }
 .Footer--Text {
   font-size: 1.6rem;

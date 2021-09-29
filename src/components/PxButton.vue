@@ -11,7 +11,7 @@
     "
     type="button"
   >
-    <p>
+    <p style="margin: 0">
       <slot></slot>
     </p>
   </button>
@@ -34,7 +34,7 @@ export default {
 <style scoped>
 .button {
   font-family: var(--principal-font);
-  padding: 0rem 3.5rem;
+  padding: 1rem 3.5rem;
   border: 0;
   border-radius: 3rem;
   font-size: 1.6rem;

@@ -2,7 +2,9 @@
   <div class="Ads">
     <h3 class="Ads--Text">
       Encuentra a los mejores técnicos especialista,
-      <a class="Ads--Ancle" href="">aquí</a>
+      <router-link class="Ads--Ancle" :to="{ name: 'SignUp' }"
+        >aquí</router-link
+      >
     </h3>
   </div>
 </template>
