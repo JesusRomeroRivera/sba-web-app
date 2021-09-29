@@ -39,6 +39,7 @@ export default {
   border-radius: 3rem;
   font-size: 1.6rem;
   font-weight: 500;
+  cursor: pointer;
 }
 .black {
   background-color: black;

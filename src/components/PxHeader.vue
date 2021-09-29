@@ -34,7 +34,7 @@ export default {
   top: 0;
   left: 0;
   height: var(--header-height);
-  background-color: #343434;
+  background-color: var(--background-gray);
   display: flex;
   justify-content: space-between;
   align-items: center;
