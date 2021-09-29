@@ -30,13 +30,15 @@ export default {
   width: 100vw;
   height: 75vh;
   margin-top: var(--header-height);
-  background: #c0c0c0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 0 12.5vw;
   box-sizing: border-box;
+  background-image: url("../../assets/background.png");
+  background-position: center;
+  background-size: 110vw auto;
 }
 .Carrousell--Text {
   text-align: center;

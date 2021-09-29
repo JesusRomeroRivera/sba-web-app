@@ -2,13 +2,15 @@
   <header class="Header">
     <h1 class="Header--Title">SBA</h1>
     <div class="Header--List">
-      <ul>
-        <li><a href="">Inicio</a></li>
-        <li><a href="">Nosotros</a></li>
-        <li><a href="">Servicios</a></li>
-        <li><a href="">Regístrate</a></li>
-        <li><a href="">Iniciar Sesión</a></li>
-      </ul>
+      <a class="Header--List--Ancle" href="#inicio">Inicio</a>
+      <a class="Header--List--Ancle" href="#nosotros">Nosotros</a>
+      <a class="Header--List--Ancle" href="#servicios">Servicios</a>
+      <router-link class="Header--List--Ancle" :to="{ name: 'SignUp' }"
+        >Regístrate</router-link
+      >
+      <router-link class="Header--List--Ancle" :to="{ name: 'Login' }"
+        >Inicio Sesión</router-link
+      >
     </div>
     <div v-if="login" class="Header--Web">
       <p>Web App</p>
@@ -50,20 +52,15 @@ export default {
 }
 .Header--List {
   width: 50vw;
-}
-.Header--List ul {
   display: flex;
   justify-content: space-between;
   margin: 0;
   padding: 0;
 }
-.Header--List li {
-  list-style: none;
-}
-.Header--List a {
+.Header--List--Ancle {
   text-decoration: none;
   color: var(--off-white);
-  font-family: var(--principal-font);
+  font-family: var(--principal-fo nt);
   font-size: 1.8rem;
   font-weight: 500;
 }

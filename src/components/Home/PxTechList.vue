@@ -40,7 +40,7 @@ export default {
 }
 
 .TechList--Arrow img {
-  width: 5rem;
+  width: 1.6rem;
   cursor: pointer;
 }
 .Technician {

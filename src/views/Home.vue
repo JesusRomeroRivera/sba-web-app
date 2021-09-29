@@ -1,9 +1,9 @@
 <template>
   <section class="Home">
-    <px-carrousell></px-carrousell>
-    <px-about></px-about>
+    <px-carrousell id="inicio"></px-carrousell>
+    <px-about id="nosotros"></px-about>
     <px-ads></px-ads>
-    <px-list></px-list>
+    <px-list id="servicios"></px-list>
     <px-contact></px-contact>
   </section>
 </template>

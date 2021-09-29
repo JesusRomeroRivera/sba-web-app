@@ -15,7 +15,7 @@
         especializados en servicios en casa en Sudamérica.
       </p>
     </div>
-    <div class="About--Img"></div>
+    <img class="About--Img" src="@/assets/about-img.png" />
   </div>
 </template>
 
