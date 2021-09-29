@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <px-header :login="false"></px-header>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import PxHeader from "./components/PxHeader.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    PxHeader,
   },
 };
 </script>
 
 <style>
+:root {
+  --principal-font: "Poppins", sans-serif;
+  --off-white: #ffffff;
+  --soft-gray: #d1d1cf;
+  --strong-gray: #7f7f7f;
+  --off-black: #000000;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  font-family: var(--principal-font);
+  overflow-x: hidden;
+}
+body{
+  padding: 0;
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  font-family: var(--principal-font);
+  color: var(--off-black);
 }
 </style>
