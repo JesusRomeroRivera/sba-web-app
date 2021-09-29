@@ -1,12 +1,10 @@
 <template>
-  <section class="Initial">
-    
-  </section>
+  <section class="Initial"></section>
 </template>
 
 <script>
 export default {
-  name: "initial",
+  name: "Initial",
   data() {
     return {
       buttonColor: "black",
@@ -14,6 +12,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
