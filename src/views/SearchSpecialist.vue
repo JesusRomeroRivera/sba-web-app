@@ -1,7 +1,6 @@
 <template>
   <section class="Search">
     <px-carrousell id="inicio"></px-carrousell>
-
     <px-ads></px-ads>
     <px-specialists-list></px-specialists-list>
     <px-contact></px-contact>
