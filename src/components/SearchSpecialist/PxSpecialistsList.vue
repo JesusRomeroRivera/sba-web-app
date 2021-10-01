@@ -1,6 +1,16 @@
 <template>
   <div class="SearchSpecialist">
 
+    <div class="List--Container">
+      <PxSelect style="margin-right: 20px" title="Distrito" :elements="district"></PxSelect>
+      <PxSelect style="margin-right: 20px" title="Especialidad" :elements="specialism"></PxSelect>
+
+      <px-button class="List--Button" :color="buttonColor">
+        Buscar
+      </px-button>
+    </div>
+    <div class="List--Line"></div>
+
     <div v-for="(i, index) in Techs.length" :key="index">
 
       <px-tech-list :TechList="Techs"></px-tech-list>
@@ -19,16 +29,29 @@
 <script>
 import PxButton from "@/components/PxButton.vue";
 import PxTechList from "@/components/SearchSpecialist/PxTechList.vue";
+import PxSelect from "@/components/SearchSpecialist/PxSelect";
 
 export default {
   name: "PxList",
   components: {
     PxButton,
     PxTechList,
+    PxSelect
   },
   data() {
     return {
       buttonColor: "black",
+      specialism:[
+        "Tecnico electronico",
+        "Carpintero",
+        "Electricista"
+      ],
+      district:[
+        "Vitarte",
+        "San Juan Lurigancho",
+        "Cerro Camote",
+        "AAHH Olvidados por Dios"
+      ],
       Techs: [
         {
           name: "Lucas Moreno",
@@ -82,5 +105,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 </style>
