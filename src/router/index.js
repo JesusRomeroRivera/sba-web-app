@@ -20,6 +20,11 @@ const routes = [
     name: "SignUp",
     component: () => import("../views/SignUp.vue"),
   },
+  {
+      path: "/SearchSpecialist",
+    name: "Search Specialist",
+    component: ()=>import("../views/SearchSpecialist.vue")
+  }
 ];
 
 const router = new VueRouter({
