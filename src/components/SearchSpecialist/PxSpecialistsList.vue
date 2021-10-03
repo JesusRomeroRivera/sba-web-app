@@ -20,6 +20,11 @@
       <px-button class="List--Button" :color="buttonColor"
       >Más especialistas</px-button
       >
+
+    </div>
+    <div class="List--Line"></div>
+    <div class="List--Container">
+      <h2 style="font-size: 40px">Opiniones</h2>
     </div>
 
 
@@ -44,7 +49,8 @@ export default {
       specialism:[
         "Tecnico electronico",
         "Carpintero",
-        "Electricista"
+        "Electricista",
+        "Zapateria nuclear"
       ],
       district:[
         "Vitarte",

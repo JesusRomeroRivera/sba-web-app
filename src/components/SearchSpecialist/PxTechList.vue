@@ -8,10 +8,10 @@
     <article v-for="Tech in TechList" :key="Tech.name" class="Technician">
       <img :src="Tech.img" class="Technician--Photo" />
       <h3 class="Technician--Fullname">{{ Tech.name }}</h3>
-      <p class="Technician--Score">Reviews</p>
-      <div v-for="(i, index) in Tech.reviews" :key="index" >
+      <p class="Technician--Score">Reviews: {{Tech.reviews}} 🌟</p>
+      <!--<div v-for="(i, index) in Tech.reviews" :key="index" >
         <span style="display: inline-block">🌟</span>
-      </div>
+      </div>-->
     </article>
     <div class="TechList--Arrow">
 
