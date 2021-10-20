@@ -1,19 +1,29 @@
 <template>
   <header class="Header">
-    <h1 class="Header--Title">SBA</h1>
-    <div class="Header--List">
-      <a class="Header--List--Ancle" href="#inicio">Inicio</a>
-      <a class="Header--List--Ancle" href="#nosotros">Nosotros</a>
-      <a class="Header--List--Ancle" href="#servicios">Servicios</a>
-      <router-link class="Header--List--Ancle" :to="{ name: 'SignUp' }"
-        >Regístrate</router-link
-      >
-      <router-link class="Header--List--Ancle" :to="{ name: 'Login' }"
-        >Inicio Sesión</router-link
-      >
+    <div class="Header--Home" v-if="this.whatHeader">
+      <h1 class="Header--Title">SBA</h1>
+      <div class="Header--List">
+        <a class="Header--List--Ancle" href="#inicio">Inicio</a>
+        <a class="Header--List--Ancle" href="#nosotros">Nosotros</a>
+        <a class="Header--List--Ancle" href="#servicios">Servicios</a>
+        <router-link class="Header--List--Ancle" :to="{ name: 'SignUp' }"
+          >Regístrate</router-link
+        >
+        <router-link class="Header--List--Ancle" :to="{ name: 'Login' }"
+          >Inicio Sesión</router-link
+        >
+      </div>
     </div>
-    <div v-if="login" class="Header--Web">
-      <p>Web App</p>
+    <div class="Header--Initial" v-if="!this.whatHeader">
+      <h1 class="Header--Title">SBA</h1>
+      <div class="Header--List">
+        <a class="Header--List--Ancle" href="#inicio">Inicio</a>
+        <a class="Header--List--Ancle" href="#servicios">Servicios</a>
+        <router-link class="Header--List--Ancle" :to="{ name: 'Profile' }"
+          >Mi perfil</router-link
+        >
+        <a class="Header--List--Ancle" @click="goHome">Cerrar sesión</a>
+      </div>
     </div>
   </header>
 </template>
@@ -27,6 +37,19 @@ export default {
       buttonColor: "black",
     };
   },
+  computed: {
+    whatHeader(){
+      return this.$route.name == "Home"
+    }
+  },
+  methods: {
+    goHome() {
+      this.$store.state.userId = 0;
+      this.$router.push({
+        path: "/",
+      });
+    }
+  }
 };
 </script>
 
@@ -35,15 +58,19 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  height: var(--header-height);
-  background-color: var(--background-gray);
+  width: 100vw;
+  box-sizing: border-box;
+}
+.Header--Home, .Header--Initial{
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--off-white);
+  height: var(--header-height);
   padding: 0 8vw;
-  width: 100vw;
+  background-color: var(--background-gray);
   box-sizing: border-box;
+
 }
 .Header--Title {
   font-weight: 600;

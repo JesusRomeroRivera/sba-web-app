@@ -6,17 +6,32 @@
         ¿Ya tienes una cuenta?
         <router-link :to="{ name: 'Login' }">Iniciar Sesión</router-link>
       </p>
-      <input class="SignUp--Input" type="text" placeholder="Nombre" />
+      <div class="Emergency--Container">
+        <input class="SignUp--Input" v-model="userData.firstName" type="text" placeholder="Nombre" />
+        <input class="SignUp--Input" v-model="userData.lastName" type="text" placeholder="Apellido" />
+      </div>
       <br />
-      <input class="SignUp--Input" type="email" placeholder="E-mail" />
+      <input class="SignUp--Input" v-model="userRegister.email" type="email" placeholder="E-mail" />
       <br />
-      <input class="SignUp--Input" type="password" placeholder="Contraseña" />
+      <input class="SignUp--Input" v-model="userRegister.password" type="password" placeholder="Contraseña" />
       <br />
-      <input class="SignUp--Input" type="number" placeholder="Teléfono" />
+      <div class="Emergency--Container">
+        <input class="SignUp--Input" v-model="address.region" type="text" placeholder="Región" />
+        <input class="SignUp--Input" v-model="address.province" type="text" placeholder="Provincia" />
+        <input class="SignUp--Input" v-model="address.district" type="text" placeholder="Distrito" />
+      </div>
       <br />
-      <input class="SignUp--Input" type="text" placeholder="Distrito" />
+      <input class="SignUp--Input" v-model="address.fullAddress" type="text" placeholder="Dirección" />
+      <br />
+      <input class="SignUp--Input" v-model="userData.phoneNumber" type="number" placeholder="Teléfono" />
+      <div class="Emergency--Container2">
+        <input type="radio" v-model="userCheck" id="tech" name="type" value="customer" checked>
+        <label class="Radio--Text" for="tech">Cliente</label>
+        <input type="radio" v-model="userCheck" id="customer" name="type" value="tech">
+        <label class="Radio--Text"  for="customer">Técnico</label>
+      </div>
       <px-button
-        @custom-click="this.popUp"
+        @custom-click="this.insertData"
         class="SignUp--Button"
         :color="buttonBlack"
         >Iniciar</px-button
@@ -37,24 +52,119 @@
 
 <script>
 import PxButton from "@/components/PxButton.vue";
+import UserService from "@/services/users-service.js";
+import AddressService from "@/services/address-service.js";
+import CustomerService from "@/services/customers-service.js";
+import TechnicianService from "@/services/technicians-service.js";
 
 export default {
   data() {
     return {
+      userCheck: true, 
       buttonBlack: "black",
+      userRegister: {
+        email: "",
+        password: "",
+      },
+      address: {
+        region: "",
+        province: "",
+        district: "",
+        fullAddress: "",
+      },
+      userData: {
+        firstName: "",
+        lastName: "",
+        imageUrl: "https://www.aulafacil.com/uploads/perfiles/28/foto.2bd2e06d14be0fa01700d60c68fe646c.jpg",
+        description: "Vacía",
+        phoneNumber: "",
+      }
     };
   },
   components: {
     PxButton,
   },
+  computed: {
+    allComplete() {
+      return (
+        this.userRegister.email &&
+        this.userRegister.password &&
+        this.address.region &&
+        this.address.province &&
+        this.address.district &&
+        this.address.fullAddress &&
+        this.userData.firstName &&
+        this.userData.lastName &&
+        this.userData.phoneNumber &&
+        this.userCheck
+      );
+    }
+  },
   methods: {
-    popUp() {
-      alert("Registrado satisfactoriamente");
+    registerUser(userVariable) {
+      UserService.create(userVariable)
+        .then((response) => {
+          console.log(response);
+          this.$store.state.userId = response.data.id;
+          AddressService.create(this.$store.state.userId, this.address)
+            .then((responseDetails) => {
+            console.log(responseDetails);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+          if(this.userCheck == "customer"){
+            CustomerService.create(this.$store.state.userId, this.userData)
+              .then((responseDetails) => {
+                alert("Se creó el usuario")
+                console.log(responseDetails);
+              })
+              .catch((e) => {
+                console.log(e);
+              });
+          } else if(this.userCheck == "tech"){
+            TechnicianService.create(this.$store.state.userId, this.userData)
+              .then((responseDetails) => {
+                alert("Se creó el técnico")
+                console.log(responseDetails);
+              })
+              .catch((e) => {
+                console.log(e);
+              });
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    insertData() {
+      if (this.allComplete) {
+        this.registerUser(this.userRegister);
+        alert("Funciona aparentemente")
+      } else {
+        alert("Complete todos los datos")
+      }
     },
   },
 };
 </script>
 <style scoped>
+.Emergency--Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.Emergency--Container2 {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.Radio--Text{
+  margin: 0;
+  font-size: 1.4rem;
+}
 .SignUp {
   width: 100vw;
   height: 100vh;
@@ -66,7 +176,7 @@ export default {
   grid-template-columns: repeat(2, 1fr);
 }
 .SignUp--Container {
-  padding: 12.5vh 10vw;
+  padding: 10vh 10vw;
   display: flex;
   flex-direction: column;
 }

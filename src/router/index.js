@@ -20,6 +20,21 @@ const routes = [
     name: "SignUp",
     component: () => import("../views/SignUp.vue"),
   },
+  {
+    path: "/Initial",
+    name: "Initial",
+    component: () => import("../views/Initial.vue"),
+  },
+  {
+    path: "/Information",
+    name: "Information",
+    component: () => import("../views/Information.vue"),
+  },
+  {
+    path: "/Profile",
+    name: "Profile",
+    component: () => import("../views/Profile.vue"),
+  },
 ];
 
 const router = new VueRouter({

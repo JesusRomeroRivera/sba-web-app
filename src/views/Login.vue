@@ -6,13 +6,18 @@
         ¿No tienes una cuenta?
         <router-link :to="{ name: 'SignUp' }">Regístrate</router-link>
       </p>
-      <input class="Login--Input" type="email" placeholder="E-mail" />
+      <input class="Login--Input" v-model="userRegister.email" type="email" placeholder="E-mail" />
       <br />
-      <input class="Login--Input" type="password" placeholder="Contraseña" />
+      <input class="Login--Input" v-model="userRegister.password" type="password" placeholder="Contraseña" />
       <p class="Login--Password">
         ¿Olvidaste tu contraseña? <a href="">Recuperar contraseña</a>
       </p>
-      <px-button class="Login--Button" :color="buttonBlack">Iniciar</px-button>
+      <px-button
+        class="Login--Button"
+        @custom-click="this.insertData"
+        :color="buttonBlack"
+        >Iniciar</px-button
+      >
     </div>
     <img class="Login--Img" src="@/assets/about-img.png" />
   </section>
@@ -20,15 +25,50 @@
 
 <script>
 import PxButton from "@/components/PxButton.vue";
+import UserService from "@/services/users-service.js";
 
 export default {
   data() {
     return {
       buttonBlack: "black",
+      userRegister: {
+        email: "",
+        password: "",
+      },
     };
   },
   components: {
     PxButton,
+  },
+  
+  computed: {
+    allComplete() {
+      return this.userRegister.email && this.userRegister.password;
+    }
+  },
+  methods: {
+    authUser(userVariable) {
+      UserService.auth(userVariable)
+        .then((response) => {
+          console.log(response);
+          this.$store.state.userId = response.data.id;
+          this.$store.state.token = response.data.token;
+          this.$router.push({
+            path: "/Initial",
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    insertData() {
+      if (this.allComplete) {
+        this.authUser(this.userRegister);
+        alert("Login Completo")
+      } else {
+        alert("Complete todos los datos")
+      }
+    },
   },
 };
 </script>

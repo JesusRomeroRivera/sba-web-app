@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "px-header",
+  name: "px-footer",
   props: ["login"],
   data() {
     return {

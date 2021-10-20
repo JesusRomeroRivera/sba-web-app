@@ -1,8 +1,7 @@
 Feature: Registro en la plataforma
   Como usuario general quiero registrarme en la plataforma para tener mi propia cuenta
-
   Scenario: el usuario registra una cuenta
-    Given el usuario se encuentra en la pestaña de registro
+    Given el usuario se encuentra en la plataforma
     When complete los campos requeridos y le da al botón de “Registrarse”
     Then se registra la cuenta
   Scenario: el usuario ingresa un dato invalido
