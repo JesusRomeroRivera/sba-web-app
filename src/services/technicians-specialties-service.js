@@ -1,8 +1,8 @@
 import http from "./http";
 
-class TechnicianService {
+class TechnicianSpecialtyService {
   getById(id) {
-    return http.get(`/technician/${id}`);
+    return http.get(`/technician/${id}/specialties`);
   }
   getAll() {
     return http.get("/technician");
@@ -12,4 +12,4 @@ class TechnicianService {
   }
 }
 
-export default new TechnicianService();
+export default new TechnicianSpecialtyService();

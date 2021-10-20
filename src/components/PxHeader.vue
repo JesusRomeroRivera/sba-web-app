@@ -17,7 +17,9 @@
     <div class="Header--Initial" v-if="!this.whatHeader">
       <h1 class="Header--Title">SBA</h1>
       <div class="Header--List">
-        <a class="Header--List--Ancle" href="#inicio">Inicio</a>
+        <router-link class="Header--List--Ancle" :to="{ name: 'Initial' }"
+          >Inicio</router-link
+        >
         <a class="Header--List--Ancle" href="#servicios">Servicios</a>
         <router-link class="Header--List--Ancle" :to="{ name: 'Profile' }"
           >Mi perfil</router-link
@@ -38,9 +40,9 @@ export default {
     };
   },
   computed: {
-    whatHeader(){
-      return this.$route.name == "Home"
-    }
+    whatHeader() {
+      return this.$route.name == "Home";
+    },
   },
   methods: {
     goHome() {
@@ -48,8 +50,8 @@ export default {
       this.$router.push({
         path: "/",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -61,7 +63,8 @@ export default {
   width: 100vw;
   box-sizing: border-box;
 }
-.Header--Home, .Header--Initial{
+.Header--Home,
+.Header--Initial {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,7 +73,6 @@ export default {
   padding: 0 8vw;
   background-color: var(--background-gray);
   box-sizing: border-box;
-
 }
 .Header--Title {
   font-weight: 600;

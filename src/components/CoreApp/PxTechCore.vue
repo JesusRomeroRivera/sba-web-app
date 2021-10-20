@@ -6,11 +6,24 @@
         <option value="Lince"></option>
       </datalist>
 
-      <input class="Filter--Input" list="specialties" placeholder="Especialidad" />
+      <input
+        class="Filter--Input"
+        list="specialties"
+        placeholder="Especialidad"
+      />
       <datalist id="specialties">
-        <option v-for="special in specialties" :key="special.id" :value="special.name"></option>
+        <option
+          v-for="special in specialties"
+          :key="special.id"
+          :value="special.name"
+        ></option>
       </datalist>
-      <input class="Filter--Input" v-model="nameFilter" type="text" placeholder="Nombre" />
+      <input
+        class="Filter--Input"
+        v-model="nameFilter"
+        type="text"
+        placeholder="Nombre"
+      />
       <px-button
         @custom-click="this.searchInfo"
         class="SignUp--Button"
@@ -19,13 +32,13 @@
       >
     </div>
     <div class="TechCore--List">
-      <article 
+      <article
         @click="goInformation(tech.userId)"
         class="Technician"
         v-for="tech in technicians"
         :key="tech.userId"
       >
-        <img :src="tech.imageUrl" class="Technician--Photo"/>
+        <img :src="tech.imageUrl" class="Technician--Photo" />
         <h3 class="Technician--Fullname">
           {{ tech.firstName }} {{ tech.lastName }}
         </h3>
@@ -63,12 +76,11 @@ export default {
           this.allTechnicians[tech].firstName == this.nameFilter ||
           this.nameFilter == ""
         ) {
-          console.log(this.nameFilter);
           this.filterTechnicians.push(this.allTechnicians[tech]);
         }
       }
       this.technicians = this.filterTechnicians;
-    }
+    },
   },
   methods: {
     getDataTechnicians() {
@@ -90,27 +102,25 @@ export default {
           console.log(e);
         });
     },
-    goInformation(userId){
+    goInformation(userId) {
       this.$store.state.informationId = userId;
       this.$router.push({
         path: "/Information",
       });
     },
-    searchInfo(){
-
-    }
+    searchInfo() {},
   },
-  beforeMount(){
+  beforeMount() {
     this.getDataTechnicians();
     this.getDataSpecialty();
-  }
+  },
 };
 </script>
 <style scoped>
 .TechCore {
   padding: 5vh 7.5vw;
 }
-.TechCore--Inputs{
+.TechCore--Inputs {
   display: flex;
   gap: 2.5rem;
   margin-bottom: 2rem;
@@ -125,9 +135,9 @@ export default {
   padding: 0.4rem;
   border-bottom: 1px solid var(--soft-gray);
 }
-.TechCore--List{
+.TechCore--List {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
 }
 .Technician {
   cursor: pointer;

@@ -1,5 +1,5 @@
 <template>
-  <section class="Initial">  
+  <section class="Initial">
     <px-carrousell id="inicio"></px-carrousell>
     <px-tech-core id="servicios"></px-tech-core>
   </section>
@@ -22,5 +22,4 @@ export default {
   },
 };
 </script>
-<style scoped>  
-</style>
+<style scoped></style>

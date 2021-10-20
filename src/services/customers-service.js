@@ -1,7 +1,7 @@
 import http from "./http";
 
 class CustomerService {
-  get(id) {
+  getById(id) {
     return http.get(`/customer/${id}`);
   }
   getAll() {

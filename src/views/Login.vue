@@ -6,9 +6,19 @@
         ¿No tienes una cuenta?
         <router-link :to="{ name: 'SignUp' }">Regístrate</router-link>
       </p>
-      <input class="Login--Input" v-model="userRegister.email" type="email" placeholder="E-mail" />
+      <input
+        class="Login--Input"
+        v-model="userRegister.email"
+        type="email"
+        placeholder="E-mail"
+      />
       <br />
-      <input class="Login--Input" v-model="userRegister.password" type="password" placeholder="Contraseña" />
+      <input
+        class="Login--Input"
+        v-model="userRegister.password"
+        type="password"
+        placeholder="Contraseña"
+      />
       <p class="Login--Password">
         ¿Olvidaste tu contraseña? <a href="">Recuperar contraseña</a>
       </p>
@@ -40,11 +50,11 @@ export default {
   components: {
     PxButton,
   },
-  
+
   computed: {
     allComplete() {
       return this.userRegister.email && this.userRegister.password;
-    }
+    },
   },
   methods: {
     authUser(userVariable) {
@@ -64,9 +74,9 @@ export default {
     insertData() {
       if (this.allComplete) {
         this.authUser(this.userRegister);
-        alert("Login Completo")
+        alert("Login Completo");
       } else {
-        alert("Complete todos los datos")
+        alert("Complete todos los datos");
       }
     },
   },
