@@ -68,4 +68,4 @@ export default {
     padding: 2.5vh 22.5vw;
     height: 22.5vh;
 }
-<style>
+</style>

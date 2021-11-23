@@ -72,7 +72,7 @@
       <div class="Emergency--Container2">
         <input
           type="radio"
-          v-model="userCheck"
+          v-model="userRegister.userType"
           id="tech"
           name="type"
           value="customer"
@@ -81,7 +81,7 @@
         <label class="Radio--Text" for="tech">Cliente</label>
         <input
           type="radio"
-          v-model="userCheck"
+          v-model="userRegister.userType"
           id="customer"
           name="type"
           value="tech"
@@ -118,11 +118,11 @@ import TechnicianService from "@/services/technicians-service.js";
 export default {
   data() {
     return {
-      userCheck: true,
       buttonBlack: "black",
       userRegister: {
         email: "",
         password: "",
+        userType: "",
       },
       address: {
         region: "",
@@ -155,7 +155,7 @@ export default {
         this.userData.firstName &&
         this.userData.lastName &&
         this.userData.phoneNumber &&
-        this.userCheck
+        this.userRegister.userType
       );
     },
   },
@@ -171,8 +171,8 @@ export default {
             })
             .catch((e) => {
               console.log(e);
-            });
-          if (this.userCheck == "customer") {
+          });
+          if (this.userRegister.userType == "customer") {
             CustomerService.create(this.$store.state.userId, this.userData)
               .then((responseDetails) => {
                 alert("Se creó el usuario");
@@ -181,7 +181,7 @@ export default {
               .catch((e) => {
                 console.log(e);
               });
-          } else if (this.userCheck == "tech") {
+          } else if (this.userRegister.userType == "tech") {
             TechnicianService.create(this.$store.state.userId, this.userData)
               .then((responseDetails) => {
                 alert("Se creó el técnico");

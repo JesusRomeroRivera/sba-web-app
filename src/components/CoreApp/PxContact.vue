@@ -20,6 +20,7 @@
                 >Opinión</px-button
             >
             <px-button
+                @custom-click="this.showPopUpReport"
                 class="Contact--Button"
                 :color="buttonColor"
                 >Reportar</px-button
@@ -79,6 +80,9 @@ export default {
     },
     showPopUpOpinion(){
         this.$store.state.popUpOpinion = !this.$store.state.popUpOpinion;
+    },
+    showPopUpReport(){
+        this.$store.state.popUpReport = !this.$store.state.popUpReport;
     }
   },
   beforeMount() {

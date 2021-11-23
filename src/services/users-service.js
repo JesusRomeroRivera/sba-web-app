@@ -10,6 +10,9 @@ class UserService {
   create(data) {
     return http.post("/user", data);
   }
+  edit(id, data){
+    return http.put(`/user/${id}`, data);
+  }
   auth(data) {
     return http.post("/user/authenticate", data);
   }

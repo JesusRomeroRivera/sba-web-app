@@ -44,6 +44,7 @@ export default {
       userRegister: {
         email: "",
         password: "",
+        userType: "",
       },
     };
   },
@@ -63,6 +64,7 @@ export default {
           console.log(response);
           this.$store.state.userId = response.data.id;
           this.$store.state.token = response.data.token;
+          this.$store.state.type = response.data.userType;
           this.$router.push({
             path: "/Initial",
           });

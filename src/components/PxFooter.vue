@@ -1,6 +1,6 @@
 <template>
-  <footer class="Footer">
-    <div class="Footer--Container">
+  <footer class="Footer" :class="[this.whatHeader ? 'siSePresenta' : 'noSePresenta']">
+    <div class="Footer--Container" v-if="this.whatHeader">
       <h1 class="Footer--Logo">SBA</h1>
       <div class="Footer--SocialMedia">
         <a class="Footer--IconContainer" href="">
@@ -28,15 +28,27 @@ export default {
       buttonColor: "black",
     };
   },
+  computed: {
+    whatHeader() {
+      return this.$route.name == "Home";
+    },
+  },
 };
 </script>
 
 <style scoped>
-.Footer {
+.siSePresenta{
   height: 40vh;
-  width: 100vw;
   display: grid;
   grid-template-rows: 3fr 1fr;
+}
+.noSePresenta{
+  height: 10vh;
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.Footer {
+  width: 100vw;
   box-sizing: border-box;
 }
 .Footer--Container {

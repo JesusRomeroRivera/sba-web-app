@@ -7,6 +7,9 @@ class CustomerService {
   getAll() {
     return http.get("/customer");
   }
+  edit(id, data){
+    return http.put(`/customer/${id}`, data);
+  }
   create(id, data) {
     return http.post(`/customer?userId=${id}`, data);
   }

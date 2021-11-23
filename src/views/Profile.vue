@@ -9,9 +9,6 @@
 import PxUserProfile from "@/components/CoreApp/PxUserProfile.vue";
 import PxTechProfile from "@/components/CoreApp/PxTechProfile.vue";
 
-import CustomerService from "@/services/customers-service.js";
-import TechnicianService from "@/services/technicians-service.js";
-
 export default {
   name: "Information",
   components: {
@@ -31,30 +28,8 @@ export default {
     },
   },
   methods: {
-       getDataUser(){
-        CustomerService.getById(this.$store.state.userId)
-        .then((response) => {
-          this.customerData = response.data;
-          this.$store.state.type = "customer";
-          console.log(this.$store.state.type);
-        })
-        .catch((e) => {
-            console.log(e);
-        });
-        TechnicianService.getById(this.$store.state.userId)
-        .then((response) => {
-            this.techData = response.data;
-          this.$store.state.type = "technician";
-            console.log(this.$store.state.type);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-
-    },
   },
   beforeMount() {
-      this.getDataUser()
   }
 }
 </script>
