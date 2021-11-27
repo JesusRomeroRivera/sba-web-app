@@ -129,7 +129,6 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     background-color: white;
-    z-index: 5;
 }
 .UserProfile--Img{
     height: 25vh;
@@ -167,5 +166,24 @@ export default {
   justify-content: center;
   align-items: center;
   height: 40vh;
+}
+@media only screen and (max-width: 1024px) {
+  .UserProfile{
+      padding: 2.5vh 15vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .UserProfile{
+      padding: 2.5vh 8vw;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .UserProfile--Container{
+      grid-template-columns: 1fr;
+      grid-template-rows: 25vh 1fr;
+  }
+  .UserProfile--PhotoContainer{
+      align-items: flex-start;
+  }
 }
 </style>

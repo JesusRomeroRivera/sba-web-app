@@ -69,6 +69,13 @@
         type="number"
         placeholder="Teléfono"
       />
+      <br />
+      <input
+        class="SignUp--Input"
+        v-model="userData.imageUrl"
+        type="text"
+        placeholder="Link de imagen del perfil"
+      />
       <div class="Emergency--Container2">
         <input
           type="radio"
@@ -124,8 +131,7 @@ export default {
       userData: {
         firstName: "",
         lastName: "",
-        imageUrl:
-          "https://www.aulafacil.com/uploads/perfiles/28/foto.2bd2e06d14be0fa01700d60c68fe646c.jpg",
+        imageUrl: "", // https://www.aulafacil.com/uploads/perfiles/28/foto.2bd2e06d14be0fa01700d60c68fe646c.jpg
         description: "Vacía",
         phoneNumber: "",
       },
@@ -146,6 +152,7 @@ export default {
         this.userData.firstName &&
         this.userData.lastName &&
         this.userData.phoneNumber &&
+        this.userData.imageUrl &&
         this.userRegister.userType
       );
     },
@@ -190,7 +197,6 @@ export default {
     insertData() {
       if (this.allComplete) {
         this.registerUser(this.userRegister);
-        alert("Funciona aparentemente");
       } else {
         alert("Complete todos los datos");
       }

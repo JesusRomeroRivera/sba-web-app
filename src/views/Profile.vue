@@ -1,7 +1,7 @@
 <template>
   <section class="Profile">
     <px-user-profile v-if="whoIsTechOrCustomer == 'customer'"></px-user-profile>
-    <px-tech-profile v-if="whoIsTechOrCustomer == 'technician'"></px-tech-profile>
+    <px-tech-profile v-if="whoIsTechOrCustomer == 'tech'"></px-tech-profile>
   </section>
 </template>
 
