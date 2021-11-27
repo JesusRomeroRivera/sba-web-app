@@ -168,4 +168,16 @@ export default {
     align-self: center;
     margin: 0;
 }
+@media only screen and (max-width: 768px) {
+  .InfoTech{
+    padding: 5vh 10vw 7.5vh 10vw;
+    background-color: #eeeeee;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .InfoTech{
+    padding: 5vh 10vw 5vh 10vw;
+    background-color: #eeeeee;
+  }
+}
 </style>

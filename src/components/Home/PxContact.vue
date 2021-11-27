@@ -57,4 +57,39 @@ export default {
 .Contact--Button {
   margin-top: 3vh;
 }
+@media only screen and (max-width: 1024px) {
+  .Contact--Title {
+    font-size: 4rem;
+  }
+  .Contact--Text {
+    font-size: 1.8rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .Contact{
+    height: 35vh;
+    padding: 0 12vw;
+  }
+  .Contact--Title {
+    font-size: 3.6rem;
+  }
+  .Contact--Text {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Contact{
+    padding: 0 8vw;
+  }
+  .Contact--Title {
+    font-size: 3rem;
+  }
+  .Contact--Text {
+    font-size: 1.5rem;
+  }
+  .Contact--Button {
+    margin-top: 2vh;
+    font-size: 1.5rem;
+  }
+}
 </style>

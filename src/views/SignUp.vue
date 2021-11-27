@@ -94,15 +94,6 @@
         :color="buttonBlack"
         >Iniciar</px-button
       >
-      <div class="SignUp--Media">
-        <p class="SignUp--Media--Text">Regístrate con:</p>
-        <px-button class="SignUp--Media--Button" :color="buttonBlack"
-          ><img src="@/assets/facebook.png" />Facebook</px-button
-        >
-        <px-button class="SignUp--Media--Button" :color="buttonBlack"
-          ><img src="@/assets/google.png" />Google</px-button
-        >
-      </div>
     </div>
     <img class="SignUp--Img" src="@/assets/about-img.png" />
   </section>
@@ -238,6 +229,7 @@ export default {
   padding: 10vh 10vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .SignUp--Title {
   font-size: 3.6rem;
@@ -292,5 +284,29 @@ export default {
 .SignUp--Media--Button img {
   margin: 0 0.8rem 0 0;
   height: 1.4rem;
+}
+@media only screen and (max-width: 1024px) {
+  .SignUp--Container {
+    padding: 10vh 5vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .SignUp {
+    grid-template-columns: 55vw 45vw;
+  }
+  .SignUp--Img {
+    width: 45vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .SignUp--Container {
+    padding: 10vh 10vw;
+  }
+  .SignUp {
+    grid-template-columns: 1fr;
+  }
+  .SignUp--Img {
+    display: none
+  }
 }
 </style>

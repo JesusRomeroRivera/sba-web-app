@@ -50,4 +50,34 @@ export default {
 .Carrousell--Button {
   margin-top: 3vh;
 }
+@media only screen and (max-width: 1024px) {
+  .Carrousell{
+    background-size: 120vw auto;
+    height: 70vh;
+  }
+  .Carrousell--Text {
+    font-size: 4.6rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .Carrousell{
+    background-size: 180vw auto;
+    height: 60vh;
+  }
+  .Carrousell--Text {
+    font-size: 3.6rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Carrousell--Text {
+    font-size: 3rem;
+  }
+  .Carrousell{
+    height: 50vh;
+    background-size: 240vw auto;
+  }
+  .Carrousell--Button {
+    margin-top: 2.4vh;
+  }
+}
 </style>

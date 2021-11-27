@@ -160,4 +160,45 @@ export default {
   font-weight: 300;
   margin: 0;
 }
+@media only screen and (max-width: 1024px) {
+  .TechCore {
+    padding: 5vh 5vw;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .Technician--Photo {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .Technician--Photo {
+    width: 70%;
+  }
+  .TechCore {
+    padding: 5vh 2.5vw;
+  }
+  .TechCore--List {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .Technician--Photo {
+    width: 90%;
+  }
+  .TechCore--Inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Technician--Photo {
+    width: 60%;
+  }
+  .TechCore--List {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

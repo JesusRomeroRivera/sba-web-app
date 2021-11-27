@@ -131,4 +131,55 @@ export default {
     font-weight: 600;
     box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.75);
 }
+@media only screen and (max-width: 1024px) {
+  .Contact{
+      padding: 2.5vh 17.5vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .Contact{
+    padding: 2.5vh 10vw;
+    height: 20vh;
+  }
+  .Contact--Name{
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin: 0;
+  }
+  .Contact--Button{
+      font-size: 1.4rem;
+  }
+  .Contact--Photo{
+    height: 17.5vh;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Contact{
+    padding: 2vh 8vw;
+    height: 20vh;
+  }
+  .Contact--Container{
+    height: 20vh;
+    grid-template-columns: 2fr 6fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .Contact--Photo{
+    height: 10vh;
+    margin-right: 0;
+  }
+  .Contact--Buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .Contact--Button{
+    padding: 0.6rem 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.75);
+  }
+}
 </style>

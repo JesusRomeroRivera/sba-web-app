@@ -70,13 +70,13 @@ export default {
           });
         })
         .catch((e) => {
+          alert("Datos incorrectos");
           console.log(e);
         });
     },
     insertData() {
       if (this.allComplete) {
         this.authUser(this.userRegister);
-        alert("Login Completo");
       } else {
         alert("Complete todos los datos");
       }
@@ -140,5 +140,25 @@ export default {
   width: 50vw;
   height: 100vh;
   justify-self: flex-end;
+}
+
+@media only screen and (max-width: 1024px) {
+  .Login {
+    grid-template-columns: 55vw 45vw;
+  }
+  .Login--Img {
+    width: 45vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .SignUp--Container {
+    padding: 10vh 10vw;
+  }
+  .Login {
+    grid-template-columns: 1fr;
+  }
+  .Login--Img {
+    display: none
+  }
 }
 </style>

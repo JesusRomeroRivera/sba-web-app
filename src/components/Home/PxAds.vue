@@ -39,4 +39,25 @@ export default {
   color: var(--off-sky);
   text-decoration: none;
 }
+@media only screen and (max-width: 1024px) {
+  .Ads--Text {
+    font-size: 4.6rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .Ads {
+    height: 35vh;
+  }
+  .Ads--Text {
+    font-size: 4rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Ads {
+    height: 27.5vh;
+  }
+  .Ads--Text {
+    font-size: 3rem;
+  }
+}
 </style>

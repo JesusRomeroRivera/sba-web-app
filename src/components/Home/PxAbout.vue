@@ -55,4 +55,36 @@ export default {
   height: 80%;
   width: 30vw;
 }
+@media only screen and (max-width: 1024px) {
+  .About {
+    height: 80vh;
+    padding: 4vh 8vw;
+    box-sizing: border-box;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .About {
+    height: 70vh;
+    padding: 5vh 10vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .About--Img {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .About {
+    height: auto;
+    padding: 5vh 8vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .About--Container .About--Title {
+    font-size: 4rem;
+  }
+  .About--Container .About--Text {
+    font-size: 1.5rem;
+  }
+}
 </style>
